@@ -17,8 +17,6 @@ var _joystick_node: Node2D
 var _knob_node: Polygon2D
 
 func _ready() -> void:
-	_build_collision_shape()
-	_build_visual()
 	_build_joystick_visual()
 	area_entered.connect(_on_area_entered)
 
@@ -53,19 +51,6 @@ func _joystick_direction() -> Vector2:
 		return Vector2.ZERO
 	var magnitude := (clamped.length() - JOYSTICK_DEADZONE) / (JOYSTICK_MAX_RADIUS - JOYSTICK_DEADZONE)
 	return clamped.normalized() * magnitude
-
-func _build_collision_shape() -> void:
-	var shape := CircleShape2D.new()
-	shape.radius = RADIUS
-	var collision := CollisionShape2D.new()
-	collision.shape = shape
-	add_child(collision)
-
-func _build_visual() -> void:
-	var visual := Polygon2D.new()
-	visual.polygon = _circle_points(RADIUS)
-	visual.color = Color(0.4, 0.65, 1.0)
-	add_child(visual)
 
 func _build_joystick_visual() -> void:
 	_joystick_node = Node2D.new()

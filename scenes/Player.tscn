@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_player"]
+[ext_resource type="Texture2D" uid="uid://dxgrqb70yjyn0" path="res://sprites/player.png" id="2_sprite"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 16.0
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sprite")
+texture_filter = 1
