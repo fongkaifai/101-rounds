@@ -14,6 +14,7 @@ config/name="101rounds"
 run/main_scene="res://scenes/Main.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+config/boot_splash/show_image=false
 
 [display]
 
